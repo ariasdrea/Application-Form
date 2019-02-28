@@ -1,0 +1,22 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-top: 10%;
+}
+
+#container p {
+    font-size: 25px;
+    text-align: center;
+    font-weight: lighter;
+}
+
+h1 {
+    text-align: center
+}
