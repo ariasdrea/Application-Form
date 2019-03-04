@@ -6,8 +6,8 @@ class App extends Component {
   render() {
     return (
       <div id="container">
-        <h1>Welcome to Home.</h1>
-        <p>Please register below.</p>
+        <p className="welcome">Welcome to Home.</p>
+        <p className="register">Please register below.</p>
         <Info />
       </div>
     );

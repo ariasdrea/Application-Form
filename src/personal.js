@@ -12,16 +12,17 @@ const infoStyles = theme => ({
     justifyContent: "space-around"
   },
   formDiv: {
-    border: "0.5px solid grey",
-    width: "20%",
+    border: "1.5px solid grey",
+    paddingTop: 10,
     paddingBottom: 50,
-    marginLeft: 5
+    marginLeft: 5,
+    background: "rgba(255, 255, 255, 0.3)"
   },
   currentStep: {
     textAlign: "center",
-    marginTop: 15,
-    opacity: 0.5,
-    fontSize: 15
+    marginTop: 20,
+    opacity: 0.6,
+    fontSize: 17
   },
   textField: {
     marginTop: 5
@@ -46,6 +47,8 @@ class Personal extends Component {
 
   render() {
     const { classes } = this.props;
+    const buttonEnabled =
+      this.props.email.length > 0 && this.props.fullName.length > 0;
 
     return (
       <div className={classes.formDiv}>
@@ -80,6 +83,7 @@ class Personal extends Component {
             variant="outlined"
             className={classes.button}
             onClick={this.props.nextStep}
+            disabled={!buttonEnabled}
           >
             Next Step
           </Button>

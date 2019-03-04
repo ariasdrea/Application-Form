@@ -22,16 +22,17 @@ const styles = theme => ({
     width: "25%",
     paddingTop: 20,
     paddingBottom: 30,
-    textAlign: "center"
+    textAlign: "center",
+    background: "rgba(255, 255, 255, 0.3)"
   },
   formControl: {
     margin: 20
   },
   currentStep: {
     textAlign: "center",
-    marginTop: 5,
-    opacity: 0.5,
-    fontSize: 15
+    marginTop: 20,
+    opacity: 0.6,
+    fontSize: 17
   },
   button: {
     display: "block",
@@ -51,6 +52,7 @@ class Salary extends Component {
 
   render() {
     const { classes } = this.props;
+    const buttonEnabled = this.props.value.length > 0;
 
     return (
       <div className={(classes.root, classes.formDiv)}>
@@ -102,6 +104,7 @@ class Salary extends Component {
             variant="outlined"
             className={classes.button}
             onClick={this.props.nextStep}
+            disabled={!buttonEnabled}
           >
             Next Step
           </Button>

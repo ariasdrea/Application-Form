@@ -53,9 +53,9 @@ class Info extends Component {
 
   handlePhoneNumber(e) {
     console.log("e:", e);
-    this.setState({
-      phoneNumber: e
-    });
+    // this.setState({
+    //   phoneNumber: val
+    // });
   }
 
   handleChange = e => {
@@ -69,15 +69,17 @@ class Info extends Component {
     switch (this.state.step) {
       case 1:
         return (
-          <Personal
-            currentStep={this.state.step}
-            fullName={this.state.fullName}
-            email={this.state.email}
-            phoneNumber={this.state.phoneNumber}
-            handleInput={this.handleInput}
-            handlePhoneNumber={this.handlePhoneNumber}
-            nextStep={this.nextStep}
-          />
+          <div>
+            <Personal
+              currentStep={this.state.step}
+              fullName={this.state.fullName}
+              email={this.state.email}
+              phoneNumber={this.state.phoneNumber}
+              handleInput={this.handleInput}
+              handlePhoneNumber={this.handlePhoneNumber}
+              nextStep={this.nextStep}
+            />
+          </div>
         );
       case 2:
         return (

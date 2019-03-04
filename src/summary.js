@@ -30,7 +30,8 @@ const styles = theme => ({
     paddingBottom: 20,
     paddingLeft: 50,
     textAlign: "center",
-    fontSize: 15
+    fontSize: 15,
+    background: "rgba(255, 255, 255, 0.4)"
   },
   title: {
     margin: 10,
