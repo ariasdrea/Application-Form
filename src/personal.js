@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
-import MuiPhoneNumber from "material-ui-phone-number";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import MuiPhoneNumber from "material-ui-phone-number";
+// import ReactPhoneInput from "react-phone-input-2";
 
 const infoStyles = theme => ({
   container: {
@@ -33,12 +34,15 @@ const infoStyles = theme => ({
     width: 200,
     fontWeight: "lighter",
     marginBottom: -20
+  },
+  phone: {
+    marginTop: 100
   }
 });
 
 class Personal extends Component {
   constructor(props) {
-    console.log("props:", props);
+    console.log("props in PERSONAL:", props);
     super(props);
     this.state = {};
   }
@@ -57,6 +61,7 @@ class Personal extends Component {
             label="Full Name"
             className={classes.textField}
             defaultValue={this.props.fullName}
+            onChange={this.props.handleInput("fullName")}
           />
 
           <TextField
@@ -64,14 +69,14 @@ class Personal extends Component {
             label="Email"
             className={classes.textField}
             defaultValue={this.props.email}
-            onChange={this.handleChange}
+            onChange={this.props.handleInput("email")}
           />
 
           <MuiPhoneNumber
             defaultCountry={"de"}
             className={classes.textField}
             defaultValue={this.props.phoneNumber}
-            onChange={this.handleChange}
+            onChange={this.props.handlePhoneNumber}
             margin="normal"
           />
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
@@ -23,7 +23,7 @@ const styles = theme => ({
     textAlign: "center"
   },
   formControl: {
-    margin: theme.spacing.unit * 3
+    margin: 20
   },
   currentStep: {
     textAlign: "center",
@@ -40,12 +40,12 @@ const styles = theme => ({
   }
 });
 
-class Salary extends React.Component {
-  state = {};
-
-  handleChange = event => {
-    this.setState({ value: event.target.value });
-  };
+class Salary extends Component {
+  constructor(props) {
+    console.log("props in SALARY:", props);
+    super(props);
+    this.state = {};
+  }
 
   render() {
     const { classes } = this.props;
@@ -60,7 +60,7 @@ class Salary extends React.Component {
 
           <br />
 
-          <RadioGroup onChange={this.handleChange}>
+          <RadioGroup onChange={this.props.handleChange}>
             <FormControlLabel
               control={<Radio />}
               value="0 - 1.000"
@@ -83,12 +83,14 @@ class Salary extends React.Component {
               control={<Radio />}
               value="3.000 - 4.000"
               label="3.000 - 4.000"
+              id="4"
             />
 
             <FormControlLabel
               control={<Radio />}
               value="mehr als 4.000"
               label="mehr als 4.000"
+              id="5"
             />
           </RadioGroup>
         </FormControl>
