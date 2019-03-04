@@ -1,18 +1,19 @@
 import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemText from "@material-ui/core/ListItemText";
-import Avatar from "@material-ui/core/Avatar";
-import Typography from "@material-ui/core/Typography";
+import {
+  withStyles,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  Avatar,
+  Button
+} from "@material-ui/core";
 import {
   PersonOutline,
   AlternateEmail,
   LocalPhone,
   AttachMoney
 } from "@material-ui/icons";
-import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
   root: {
@@ -28,11 +29,13 @@ const styles = theme => ({
     paddingTop: 20,
     paddingBottom: 20,
     paddingLeft: 50,
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: 15
   },
   title: {
     margin: 10,
-    fontSize: 20
+    fontSize: 16,
+    opacity: 0.7
   },
   button: {
     display: "block",
@@ -54,9 +57,7 @@ class Summary extends Component {
 
     return (
       <div className={(classes.root, classes.formDiv)}>
-        <Typography variant="h6" className={classes.title}>
-          Confirm Your Information Below
-        </Typography>
+        Confirm Your Information Below
         <div className={classes.demo}>
           <List>
             <ListItem>
@@ -65,7 +66,7 @@ class Summary extends Component {
                   <PersonOutline />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText secondary={this.props.fullName} />
+              <ListItemText primary={this.props.fullName} />
             </ListItem>
 
             <ListItem>
@@ -74,7 +75,7 @@ class Summary extends Component {
                   <AlternateEmail />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText secondary={this.props.email} />
+              <ListItemText primary={this.props.email} />
             </ListItem>
 
             <ListItem>
@@ -83,7 +84,7 @@ class Summary extends Component {
                   <LocalPhone />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText secondary={this.props.phoneNumber} />
+              <ListItemText primary={this.props.phoneNumber} />
             </ListItem>
 
             <ListItem>
@@ -92,7 +93,7 @@ class Summary extends Component {
                   <AttachMoney />
                 </Avatar>
               </ListItemAvatar>
-              <ListItemText secondary={this.props.value} />
+              <ListItemText primary={this.props.value} />
             </ListItem>
           </List>
 
@@ -102,7 +103,7 @@ class Summary extends Component {
               className={classes.button}
               onClick={this.props.nextStep}
             >
-              Next Step
+              Confirm
             </Button>
 
             <Button

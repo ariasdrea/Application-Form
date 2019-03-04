@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { withStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+import { withStyles, TextField, Button } from "@material-ui/core";
 import MuiPhoneNumber from "material-ui-phone-number";
-// import ReactPhoneInput from "react-phone-input-2";
 
 const infoStyles = theme => ({
   container: {
@@ -77,7 +74,6 @@ class Personal extends Component {
             className={classes.textField}
             defaultValue={this.props.phoneNumber}
             onChange={this.props.handlePhoneNumber}
-            margin="normal"
           />
 
           <Button

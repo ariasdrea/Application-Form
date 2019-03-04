@@ -18,28 +18,8 @@ class Info extends Component {
     this.nextStep = this.nextStep.bind(this);
     this.prevStep = this.prevStep.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
   }
-
-  //Handles input changes from all fields.
-  handleInput = input => e => {
-    this.setState({
-      [input]: e.target.value
-    });
-  };
-
-  handlePhoneNumber(e) {
-    console.log("e", e);
-    // this.setState({
-    //   phoneNumber: e
-    // });
-  }
-
-  // handleChange = e => {
-  //   console.log("e.target for RadioButton:", e.target.value);
-  //   this.setState({ salary: e.target.value }, () => {
-  //     console.log("this.state in salary:", this.state);
-  //   });
-  // };
 
   nextStep() {
     this.setState(
@@ -62,6 +42,20 @@ class Info extends Component {
         console.log("this.state.step:", this.state.step);
       }
     );
+  }
+
+  //Handles input changes from all fields.
+  handleInput = input => e => {
+    this.setState({
+      [input]: e.target.value
+    });
+  };
+
+  handlePhoneNumber(e) {
+    console.log("e:", e);
+    this.setState({
+      phoneNumber: e
+    });
   }
 
   handleChange = e => {
@@ -100,10 +94,10 @@ class Info extends Component {
           <Summary
             fullName={this.state.fullName}
             email={this.state.email}
-            phoneNumber={this.state.phoneNumber}
             value={this.state.value}
             prevStep={this.prevStep}
             nextStep={this.nextStep}
+            phoneNumber={this.state.phoneNumber}
           />
         );
       default:
