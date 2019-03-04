@@ -96,7 +96,16 @@ class Info extends Component {
           />
         );
       case 3:
-        return <Summary prevStep={this.prevStep} />;
+        return (
+          <Summary
+            fullName={this.state.fullName}
+            email={this.state.email}
+            phoneNumber={this.state.phoneNumber}
+            value={this.state.value}
+            prevStep={this.prevStep}
+            nextStep={this.nextStep}
+          />
+        );
       default:
     }
   }
