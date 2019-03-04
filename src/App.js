@@ -6,8 +6,6 @@ class App extends Component {
   render() {
     return (
       <div id="container">
-        <p className="welcome">Welcome to Home.</p>
-        <p className="register">Please register below.</p>
         <Info />
       </div>
     );

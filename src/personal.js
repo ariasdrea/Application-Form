@@ -48,46 +48,52 @@ class Personal extends Component {
   render() {
     const { classes } = this.props;
     const buttonEnabled =
-      this.props.email.length > 0 && this.props.fullName.length > 0;
+      this.props.email.length > 0 &&
+      this.props.email.includes("@") &&
+      this.props.fullName.length > 0;
 
     return (
-      <div className={classes.formDiv}>
-        <div className={classes.currentStep}>
-          Step {this.props.currentStep} of 3
+      <div>
+        <p className="welcome">Welcome to Home.</p>
+        <p className="register">Please register below.</p>
+        <div className={classes.formDiv}>
+          <div className={classes.currentStep}>
+            Step {this.props.currentStep} of 3
+          </div>
+          <form className={classes.container} noValidate autoComplete="on">
+            <TextField
+              required
+              label="Full Name"
+              className={classes.textField}
+              defaultValue={this.props.fullName}
+              onChange={this.props.handleInput("fullName")}
+            />
+
+            <TextField
+              required
+              label="Email"
+              className={classes.textField}
+              defaultValue={this.props.email}
+              onChange={this.props.handleInput("email")}
+            />
+
+            <MuiPhoneNumber
+              defaultCountry={"de"}
+              className={classes.textField}
+              defaultValue={this.props.phoneNumber}
+              onChange={this.props.handlePhoneNumber}
+            />
+
+            <Button
+              variant="outlined"
+              className={classes.button}
+              onClick={this.props.nextStep}
+              disabled={!buttonEnabled}
+            >
+              Next Step
+            </Button>
+          </form>
         </div>
-        <form className={classes.container} noValidate autoComplete="on">
-          <TextField
-            required
-            label="Full Name"
-            className={classes.textField}
-            defaultValue={this.props.fullName}
-            onChange={this.props.handleInput("fullName")}
-          />
-
-          <TextField
-            required
-            label="Email"
-            className={classes.textField}
-            defaultValue={this.props.email}
-            onChange={this.props.handleInput("email")}
-          />
-
-          <MuiPhoneNumber
-            defaultCountry={"de"}
-            className={classes.textField}
-            defaultValue={this.props.phoneNumber}
-            onChange={this.props.handlePhoneNumber}
-          />
-
-          <Button
-            variant="outlined"
-            className={classes.button}
-            onClick={this.props.nextStep}
-            disabled={!buttonEnabled}
-          >
-            Next Step
-          </Button>
-        </form>
       </div>
     );
   }

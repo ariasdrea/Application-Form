@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Personal from "./personal";
 import Salary from "./salary";
 import Summary from "./summary";
+import Success from "./success";
 
 class Info extends Component {
   constructor() {
@@ -14,13 +15,14 @@ class Info extends Component {
       value: ""
     };
 
-    this.handleInput = this.handleInput.bind(this);
     this.nextStep = this.nextStep.bind(this);
     this.prevStep = this.prevStep.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleInput = this.handleInput.bind(this);
     this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
+  // Will add a step to state and take the user to the following component
   nextStep() {
     this.setState(
       {
@@ -33,6 +35,7 @@ class Info extends Component {
     );
   }
 
+  // Will deduct a step to state and take the user to the previous component
   prevStep() {
     this.setState(
       {
@@ -102,6 +105,8 @@ class Info extends Component {
             phoneNumber={this.state.phoneNumber}
           />
         );
+      case 4:
+        return <Success />;
       default:
     }
   }

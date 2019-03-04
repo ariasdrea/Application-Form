@@ -18,8 +18,7 @@ const styles = theme => ({
     justifyContent: "space-around"
   },
   formDiv: {
-    border: "0.5px solid grey",
-    width: "25%",
+    border: "1.5px solid grey",
     paddingTop: 20,
     paddingBottom: 30,
     textAlign: "center",
@@ -55,67 +54,71 @@ class Salary extends Component {
     const buttonEnabled = this.props.value.length > 0;
 
     return (
-      <div className={(classes.root, classes.formDiv)}>
-        <div className={classes.currentStep}>
-          Step {this.props.currentStep} of 3
-        </div>
-        <FormControl component="fieldset" className={classes.formControl}>
-          <FormLabel component="legend">Select Your Salary Range</FormLabel>
+      <div>
+        <p className="welcome">Welcome to Home.</p>
+        <p className="register">Please register below.</p>
+        <div className={(classes.root, classes.formDiv)}>
+          <div className={classes.currentStep}>
+            Step {this.props.currentStep} of 3
+          </div>
+          <FormControl component="fieldset" className={classes.formControl}>
+            <FormLabel component="legend">Select Your Salary Range</FormLabel>
 
-          <br />
+            <br />
 
-          <RadioGroup onChange={this.props.handleChange}>
-            <FormControlLabel
-              control={<Radio />}
-              value="0 - 1.000"
-              label="0 - 1.000"
-            />
+            <RadioGroup onChange={this.props.handleChange}>
+              <FormControlLabel
+                control={<Radio />}
+                value="0 - 1.000"
+                label="0 - 1.000"
+              />
 
-            <FormControlLabel
-              control={<Radio />}
-              value="1.000 - 2.000"
-              label="1.000 - 2.000"
-            />
+              <FormControlLabel
+                control={<Radio />}
+                value="1.000 - 2.000"
+                label="1.000 - 2.000"
+              />
 
-            <FormControlLabel
-              control={<Radio />}
-              value="2.000 - 3.000"
-              label="2.000 - 3.000"
-            />
+              <FormControlLabel
+                control={<Radio />}
+                value="2.000 - 3.000"
+                label="2.000 - 3.000"
+              />
 
-            <FormControlLabel
-              control={<Radio />}
-              value="3.000 - 4.000"
-              label="3.000 - 4.000"
-              id="4"
-            />
+              <FormControlLabel
+                control={<Radio />}
+                value="3.000 - 4.000"
+                label="3.000 - 4.000"
+                id="4"
+              />
 
-            <FormControlLabel
-              control={<Radio />}
-              value="mehr als 4.000"
-              label="mehr als 4.000"
-              id="5"
-            />
-          </RadioGroup>
-        </FormControl>
+              <FormControlLabel
+                control={<Radio />}
+                value="mehr als 4.000"
+                label="mehr als 4.000"
+                id="5"
+              />
+            </RadioGroup>
+          </FormControl>
 
-        <div>
-          <Button
-            variant="outlined"
-            className={classes.button}
-            onClick={this.props.nextStep}
-            disabled={!buttonEnabled}
-          >
-            Next Step
-          </Button>
+          <div>
+            <Button
+              variant="outlined"
+              className={classes.button}
+              onClick={this.props.nextStep}
+              disabled={!buttonEnabled}
+            >
+              Next Step
+            </Button>
 
-          <Button
-            variant="outlined"
-            className={classes.button}
-            onClick={this.props.prevStep}
-          >
-            Go Back
-          </Button>
+            <Button
+              variant="outlined"
+              className={classes.button}
+              onClick={this.props.prevStep}
+            >
+              Go Back
+            </Button>
+          </div>
         </div>
       </div>
     );
