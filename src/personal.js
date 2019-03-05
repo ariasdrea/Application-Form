@@ -40,7 +40,6 @@ const infoStyles = theme => ({
 
 class Personal extends Component {
   constructor(props) {
-    console.log("props in PERSONAL:", props);
     super(props);
     this.state = {
       phoneNumber: this.props.phoneNumber
@@ -48,6 +47,7 @@ class Personal extends Component {
     this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
   }
 
+  //Saves the phone # value to state and then passes that value back to the info component (handlePhoneNumber method) in order to show the selected value if user decides to go return to review information
   handlePhoneNumber(e) {
     this.setState({
       phoneNumber: e
@@ -57,21 +57,23 @@ class Personal extends Component {
 
   render() {
     const { classes } = this.props;
+    //Validation requirements in order to enable the 'Next' button
     const buttonEnabled =
       this.props.email.length > 0 &&
       this.props.email.includes("@") &&
       this.props.fullName.length > 0 &&
-      this.state.phoneNumber.length > 0;
+      this.state.phoneNumber.length > 15;
 
     return (
       <div>
         <p className="welcome">Welcome to Home.</p>
         <p className="register">Please register below.</p>
         <div className={classes.formDiv}>
+          {/* Shows registration progress */}
           <div className={classes.currentStep}>
             Step {this.props.currentStep} of 3
           </div>
-          <form className={classes.container} noValidate autoComplete="on">
+          <form className={classes.container} autoComplete="on">
             <TextField
               required
               label="Full Name"

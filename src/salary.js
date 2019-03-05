@@ -44,7 +44,6 @@ const styles = theme => ({
 
 class Salary extends Component {
   constructor(props) {
-    console.log("props in SALARY:", props);
     super(props);
     this.state = {
       value: this.props.value
@@ -52,6 +51,7 @@ class Salary extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  //Sends value back to the info component in order to show the selected value if user decides to go return to review information
   handleChange(e) {
     this.setState({
       value: e.target.value
@@ -61,6 +61,7 @@ class Salary extends Component {
 
   render() {
     const { classes } = this.props;
+    //Validation requirement in order to enable the 'Next' button
     const buttonEnabled = this.props.value.length > 0;
 
     return (
@@ -68,6 +69,7 @@ class Salary extends Component {
         <p className="welcome">Welcome to Home.</p>
         <p className="register">Please register below.</p>
         <div className={(classes.root, classes.formDiv)}>
+          {/* Shows registration progress */}
           <div className={classes.currentStep}>
             Step {this.props.currentStep} of 3
           </div>

@@ -45,6 +45,12 @@ const styles = theme => ({
     marginBottom: 20,
     marginLeft: 60
   },
+  currentStep: {
+    marginLeft: -40,
+    marginTop: 20,
+    opacity: 0.6,
+    fontSize: 17
+  },
   list: {
     marginTop: 20
   }
@@ -64,6 +70,10 @@ class Summary extends Component {
         <p className="welcome">Welcome to Home.</p>
         <p className="register">Please register below.</p>
         <div className={(classes.root, classes.formDiv)}>
+          {/* Shows registration progress */}
+          <div className={classes.currentStep}>
+            Step {this.props.currentStep} of 3
+          </div>
           <p className="confirm">Confirm Your Information Below </p>
           <div className={classes.list}>
             <List>
