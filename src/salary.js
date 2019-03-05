@@ -62,7 +62,7 @@ class Salary extends Component {
   render() {
     const { classes } = this.props;
     //Validation requirement in order to enable the 'Next' button
-    const buttonEnabled = this.props.value.length > 0;
+    const buttonEnabled = this.props.value.length;
 
     return (
       <div>

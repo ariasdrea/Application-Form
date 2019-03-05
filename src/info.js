@@ -8,7 +8,7 @@ class Info extends Component {
   constructor() {
     super();
     this.state = {
-      step: 4,
+      step: 1,
       fullName: "",
       email: "",
       phoneNumber: "",
