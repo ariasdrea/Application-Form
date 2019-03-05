@@ -56,9 +56,9 @@ class Info extends Component {
 
   handlePhoneNumber(e) {
     console.log("e:", e);
-    // this.setState({
-    //   phoneNumber: val
-    // });
+    this.setState({
+      phoneNumber: e
+    });
   }
 
   handleChange = e => {
