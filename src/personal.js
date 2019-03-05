@@ -43,7 +43,7 @@ class Personal extends Component {
     console.log("props in PERSONAL:", props);
     super(props);
     this.state = {
-      phoneNumber: ""
+      phoneNumber: this.props.phoneNumber
     };
     this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
   }
