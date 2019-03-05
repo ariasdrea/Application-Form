@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Note
 
-Prior to running the project, please ensure that you ### `npm install` all dependencies in order to successfully run the project on your computer.
+Prior to running the project, please ensure that you `npm install` all dependencies in order to successfully run the project on your computer.
 
 ## Available Scripts
 
