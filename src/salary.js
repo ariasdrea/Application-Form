@@ -46,7 +46,17 @@ class Salary extends Component {
   constructor(props) {
     console.log("props in SALARY:", props);
     super(props);
-    this.state = {};
+    this.state = {
+      value: this.props.value
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      value: e.target.value
+    });
+    this.props.handleChange(e);
   }
 
   render() {
@@ -66,7 +76,10 @@ class Salary extends Component {
 
             <br />
 
-            <RadioGroup onChange={this.props.handleChange}>
+            <RadioGroup
+              onChange={this.props.handleChange}
+              defaultValue={this.state.value}
+            >
               <FormControlLabel
                 control={<Radio />}
                 value="0 - 1.000"

@@ -19,6 +19,7 @@ class Info extends Component {
     this.prevStep = this.prevStep.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
   }
 
   // Will add a step to state and take the user to the following component
@@ -53,17 +54,22 @@ class Info extends Component {
     });
   };
 
-  // handlePhoneNumber(e) {
-  //   console.log("e:", e);
-  //   this.setState({
-  //     phoneNumber: e
-  //   });
-  // }
+  handlePhoneNumber(e) {
+    console.log("e:", e);
+    this.setState({
+      phoneNumber: e
+    });
+  }
 
   handleChange = e => {
-    this.setState({ value: e.target.value }, () => {
-      console.log("this.state in salary:", this.state);
-    });
+    this.setState(
+      {
+        value: e.target.value
+      },
+      () => {
+        console.log("this.state in salary:", this.state);
+      }
+    );
   };
 
   render() {

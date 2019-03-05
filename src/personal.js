@@ -42,16 +42,16 @@ class Personal extends Component {
   constructor(props) {
     console.log("props in PERSONAL:", props);
     super(props);
-    this.state = {};
+    this.state = {
+      phoneNumber: ""
+    };
     this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
   }
 
   handlePhoneNumber(e) {
-    console.log("e:", e);
-    // this.setState({
-    //   phoneNumber: e
-    // });
-
+    this.setState({
+      phoneNumber: e
+    });
     this.props.handlePhoneNumber(e);
   }
 
@@ -60,7 +60,8 @@ class Personal extends Component {
     const buttonEnabled =
       this.props.email.length > 0 &&
       this.props.email.includes("@") &&
-      this.props.fullName.length > 0;
+      this.props.fullName.length > 0 &&
+      this.state.phoneNumber.length > 0;
 
     return (
       <div>
