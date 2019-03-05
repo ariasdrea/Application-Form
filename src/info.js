@@ -14,37 +14,25 @@ class Info extends Component {
       phoneNumber: "",
       value: ""
     };
-
     this.nextStep = this.nextStep.bind(this);
     this.prevStep = this.prevStep.bind(this);
     this.handleInput = this.handleInput.bind(this);
-    this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
   }
 
   // Will add a step to state and take the user to the following component
   nextStep() {
-    this.setState(
-      {
-        step: this.state.step + 1
-      },
-      () => {
-        console.log("this.state.step:", this.state.step);
-        console.log("this.state:", this.state);
-      }
-    );
+    this.setState({
+      step: this.state.step + 1
+    });
   }
 
   // Will deduct a step to state and take the user to the previous component
   prevStep() {
-    this.setState(
-      {
-        step: this.state.step - 1
-      },
-      () => {
-        console.log("this.state.step:", this.state.step);
-      }
-    );
+    this.setState({
+      step: this.state.step - 1
+    });
   }
 
   //Handles input changes from all fields.
@@ -54,16 +42,17 @@ class Info extends Component {
     });
   };
 
+  //Saves the phone number value to state in order to render it in the summary at the end
   handlePhoneNumber(e) {
-    console.log("e:", e);
     this.setState({
       phoneNumber: e
     });
   }
 
+  //Method used in Salary component to capture the selected value
   handleChange = e => {
-    this.setState({ value: e.target.value }, () => {
-      console.log("this.state in salary:", this.state);
+    this.setState({
+      value: e.target.value
     });
   };
 
@@ -100,6 +89,7 @@ class Info extends Component {
             fullName={this.state.fullName}
             email={this.state.email}
             value={this.state.value}
+            currentStep={this.state.step}
             prevStep={this.prevStep}
             nextStep={this.nextStep}
             phoneNumber={this.state.phoneNumber}

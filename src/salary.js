@@ -44,20 +44,32 @@ const styles = theme => ({
 
 class Salary extends Component {
   constructor(props) {
-    console.log("props in SALARY:", props);
     super(props);
-    this.state = {};
+    this.state = {
+      value: this.props.value
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  //Sends value back to the info component in order to show the selected value if user decides to go return to review information
+  handleChange(e) {
+    this.setState({
+      value: e.target.value
+    });
+    this.props.handleChange(e);
   }
 
   render() {
     const { classes } = this.props;
-    const buttonEnabled = this.props.value.length > 0;
+    //Validation requirement in order to enable the 'Next' button
+    const buttonEnabled = this.props.value.length;
 
     return (
       <div>
         <p className="welcome">Welcome to Home.</p>
         <p className="register">Please register below.</p>
         <div className={(classes.root, classes.formDiv)}>
+          {/* Shows registration progress */}
           <div className={classes.currentStep}>
             Step {this.props.currentStep} of 3
           </div>
@@ -66,7 +78,10 @@ class Salary extends Component {
 
             <br />
 
-            <RadioGroup onChange={this.props.handleChange}>
+            <RadioGroup
+              onChange={this.props.handleChange}
+              defaultValue={this.state.value}
+            >
               <FormControlLabel
                 control={<Radio />}
                 value="0 - 1.000"
