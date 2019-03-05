@@ -18,7 +18,6 @@ class Info extends Component {
     this.nextStep = this.nextStep.bind(this);
     this.prevStep = this.prevStep.bind(this);
     this.handleInput = this.handleInput.bind(this);
-    this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -54,12 +53,12 @@ class Info extends Component {
     });
   };
 
-  handlePhoneNumber(e) {
-    console.log("e:", e);
-    this.setState({
-      phoneNumber: e
-    });
-  }
+  // handlePhoneNumber(e) {
+  //   console.log("e:", e);
+  //   this.setState({
+  //     phoneNumber: e
+  //   });
+  // }
 
   handleChange = e => {
     this.setState({ value: e.target.value }, () => {

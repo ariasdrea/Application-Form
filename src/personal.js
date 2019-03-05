@@ -43,6 +43,16 @@ class Personal extends Component {
     console.log("props in PERSONAL:", props);
     super(props);
     this.state = {};
+    this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
+  }
+
+  handlePhoneNumber(e) {
+    console.log("e:", e);
+    // this.setState({
+    //   phoneNumber: e
+    // });
+
+    this.props.handlePhoneNumber(e);
   }
 
   render() {
@@ -80,8 +90,8 @@ class Personal extends Component {
             <MuiPhoneNumber
               defaultCountry={"de"}
               className={classes.textField}
-              defaultValue={this.props.phoneNumber}
-              onChange={this.props.handlePhoneNumber}
+              value={this.state.phoneNumber}
+              onChange={this.handlePhoneNumber}
             />
 
             <Button
